@@ -1,0 +1,7 @@
+{"question": "实习生差旅报销标准是什么？", "route_type": "document_qa", "expected_doc": "Travel Reimbursement", "expected_terms": ["实习生", "350", "260", "80"]}
+{"question": "实习生住宿标准是多少？", "route_type": "document_qa", "expected_doc": "Travel Reimbursement", "expected_terms": ["350", "260"]}
+{"question": "年假制度总结成三条", "route_type": "document_qa", "expected_doc": "Leave Policy", "expected_terms": ["5", "10", "15"]}
+{"question": "代码评审必须检查哪些内容？", "route_type": "document_qa", "expected_doc": "Engineering Review", "expected_terms": ["正确性", "测试覆盖", "安全风险"]}
+{"question": "上个月销售额最高的是哪个区域？", "route_type": "sql", "expected_terms": ["华东区", "1280000"]}
+{"question": "哪些项目处于 blocked 状态？", "route_type": "sql", "expected_terms": ["知识库助手", "数据看板"]}
+{"question": "今天上海天气怎么样？", "route_type": "refuse", "expected_terms": ["无法回答"]}

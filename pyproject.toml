@@ -1,0 +1,53 @@
+[project]
+name = "enterprise-knowledge-assistant"
+version = "0.1.0"
+description = "A LangChain/LangGraph enterprise knowledge assistant with hybrid retrieval, citations, SQL routing, refusal, and offline evaluation."
+requires-python = ">=3.10"
+dependencies = [
+  "langgraph>=0.2.14",
+  "pydantic>=2.7",
+  "typer>=0.12",
+  "rich>=13.7",
+  "fastapi>=0.111",
+  "httpx>=0.28",
+  "uvicorn>=0.30",
+  "streamlit>=1.36",
+  "scikit-learn>=1.4",
+  "rank-bm25>=0.2.2",
+  "numpy>=1.26",
+  "PyYAML>=6.0",
+  "python-dotenv>=1.0",
+  "torch==2.5.1",
+  "torchvision==0.20.1",
+  "torchaudio==2.5.1",
+  "sentence-transformers>=3.3.1",
+  "faiss-cpu>=1.9.0",
+]
+
+[project.optional-dependencies]
+llm = [
+  "langchain-openai>=0.1.20",
+]
+
+[project.scripts]
+eka = "eka.cli:app"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu118" }
+torchvision = { index = "pytorch-cu118" }
+torchaudio = { index = "pytorch-cu118" }

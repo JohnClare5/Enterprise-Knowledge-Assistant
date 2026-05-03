@@ -1,0 +1,55 @@
+retrieval:
+  strategy: vector_bm25_rerank
+  dense_top_k: 12
+  bm25_top_k: 12
+  vector_top_k: 20
+  final_top_k: 5
+  rrf_k: 60
+  rerank: true
+  max_chunks_per_doc: 3
+
+embedding:
+  provider: sentence_transformers
+  model_name: BAAI/bge-m3
+  device: auto
+  batch_size: 32
+  normalize_embeddings: true
+  index_type: faiss
+
+rerank:
+  mode: cross_encoder
+  model_name: BAAI/bge-reranker-v2-m3
+  device: auto
+  top_n: 20
+  fallback_mode: lexical
+
+generation:
+  mode: extractive
+  min_grounding_score: 0.18
+  deepseek_base_url: "https://api.deepseek.com"
+  deepseek_model: "deepseek-chat"
+  max_tokens: 800
+  temperature: 0.0
+
+data_sources:
+  git_proxy_prefix: "https://gh.llkk.cc/"
+  handbook_repos:
+    gitlab_handbook:
+      repo_url: "https://github.com/gitlab-com/content-sites/handbook.git"
+      source_type: "gitlab_handbook"
+      target_dir: "data/raw/external/gitlab_handbook"
+      url_prefix: "https://handbook.gitlab.com/"
+    sourcegraph_handbook:
+      repo_url: "https://github.com/sourcegraph/about.git"
+      source_type: "sourcegraph_handbook"
+      target_dir: "data/raw/external/sourcegraph_handbook"
+      url_prefix: "https://handbook.sourcegraph.com/"
+
+sql:
+  mode: llm_guarded
+  generator: deepseek
+  max_rows: 20
+  allowed_tables:
+    - reimbursement_records
+    - sales_summary
+    - project_status
