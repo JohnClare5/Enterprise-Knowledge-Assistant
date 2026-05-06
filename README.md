@@ -316,13 +316,10 @@ Large cloned handbook directories are intentionally ignored by git.
 
 ## Documentation
 
-A detailed Chinese technical report is available at:
+Detailed Chinese reports are available at:
 
-```text
-docs/technical_report.md
-```
-
-It covers architecture, data flow, BGE-M3 embeddings, FAISS, BM25, RRF, CrossEncoder reranking, LangGraph routing, DeepSeek generation, Text-to-SQL, SQL guard, grounding checks, evaluation, and deployment.
+- `docs/technical_report.md`: full system design and implementation report.
+- `docs/configuration_and_methods_report.md`: configuration and method details, including data cleaning, chunking, retrieval, reranking, prompts, evaluation, routing, SQL, and refusal.
 
 ## Security Notes
 
@@ -335,4 +332,3 @@ It covers architecture, data flow, BGE-M3 embeddings, FAISS, BM25, RRF, CrossEnc
 ## License
 
 MIT License.
-
